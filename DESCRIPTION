@@ -1,0 +1,38 @@
+Package: MovieDataCleaner
+Title: Cleaning Datasets with KNN and NMF Imputation
+Version: 0.0.0.9000
+Authors@R: 
+    c(person("Bruce", 
+             "Buurstra",
+              role = c("aut", "cre"),
+              email = "buursbru@mail.gvsu.edu"),
+      person("Madan", 
+              "K C",
+              role = c("aut")),
+      person("Rashmita", 
+             "Vagu",
+             role = c("aut")),
+      person("Durga", 
+             "saranya tummalapalli",
+             role = c("aut")))
+Description: This package is able to impute missing values into datasets with large amounts of missing values using both knn imputation and NMF imputation.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.2
+Imports: 
+    dplyr,
+    factoextra,
+    magrittr,
+    Matrix,
+    purrr,
+    RcppML (>= 0.5.5)
+Remotes: 
+    zdebruine/RcppML
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
