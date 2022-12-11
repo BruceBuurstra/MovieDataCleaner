@@ -7,6 +7,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+MovieDataCleaner is a package used to clean datasets, especially ones with large amounts of missing data. Missing data can often be an issue in larger datasets. This package is best suited for Movie datasets from MovieLens but can be used on any dataset. This package is able to impute missing values into a dataset using either kNN or NMF. If you wish to cluster your final dataset this packages also has the capability to do that using kmeans clustering.
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -14,6 +16,35 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Load package and dataset
+
+Here we load our package and dataset from MovieLens which contains lots of missing values. We also remove the first column which is a column for userIds.
+
 ```{r setup}
 library(MovieDataCleaner)
+load("C:/Users/bbuur/MovieDataCleaner/data/ratings_wide.rdata")
+ratings_wide <- ratings_wide[,-1]
 ```
+
+## Clean initial dataset
+
+Two functions from our package `drop_rows` and `drop_columns` can be used to remove rows and columns from a dataset that contain extraordinary large amounts of missing data. This can help make the imputation proccess less substantial.
+
+```{r}
+new_data <- drop_columns(0.9, ratings_wide)
+new_data <- drop_rows(0.7, new_data)
+```
+
+Above we create a new dataset `new_data` which we will work with from now on out. This new dataset still contains lots of missing values but not as much as our original data. Columns that contained over 90% of missing values were dropped and rows that contained over 70% of missing values were dropped. Now we have a datset ready to have values imputed for missing data.
+
+# kNN Imputation
+
+First we will use the `run_knn_imputation` function on our new dataset.
+
+```{r message=FALSE}
+knn_imputed <- run_knn_imputation(5, new_data)
+head(knn_imputed, c(5, 5))
+```
+
+
+
