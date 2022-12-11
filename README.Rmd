@@ -34,8 +34,3 @@ You can install the released version of MovieDataCleaner from [GitHub](https://g
 ``` r
 devtools::install_github("BruceBuurstra/MovieDataCleaner")
 ```
-
-See pkgdown site here:
-
-## Link to vignette
-
