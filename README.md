@@ -12,9 +12,11 @@ with **NMF imputation** and **kNN imputation**
 See `pkgdown` site here:
 <https://brucebuurstra.github.io/MovieDataCleaner/>
 
-MovieDataCleaner easily: \* drops rows and columns containg missing
-values \* imputes missing values using NMF or kNN \* clusters imputed
-datasets
+MovieDataCleaner easily:
+
+-   drops rows and columns containg missing values
+-   imputes missing values using NMF or kNN
+-   clusters imputed datasets
 
 ## Installation
 
@@ -24,3 +26,8 @@ You can install the released version of MovieDataCleaner from
 ``` r
 devtools::install_github("BruceBuurstra/MovieDataCleaner")
 ```
+
+## Introductory Vignette
+
+[Guided clustering
+tutorial](https://brucebuurstra.github.io/MovieDataCleaner/articles/MovieDataCleanerVignette.html)
