@@ -37,7 +37,7 @@ new_data <- drop_rows(0.7, new_data)
 
 Above we create a new dataset `new_data` which we will work with from now on out. This new dataset still contains lots of missing values but not as much as our original data. Columns that contained over 90% of missing values were dropped and rows that contained over 70% of missing values were dropped. Now we have a datset ready to have values imputed for missing data.
 
-# kNN Imputation
+## kNN Imputation
 
 First we will use the `run_knn_imputation` function on our new dataset.
 
@@ -46,5 +46,74 @@ knn_imputed <- run_knn_imputation(5, new_data)
 head(knn_imputed, c(5, 5))
 ```
 
+Imputation is done using the value of 5 for the k in our nearest neighbor imputation function. Looking at the first 5 rows and columns we see now that our dataset has values where there used to be missing values.
 
+## Clustering with knn imputed dataset
 
+Now that we have a full dataset we can cluster that dataset to see what movies are alike. The clustering functions in this package look only at clustering on columns. `optimal_knn_kmeans_clusters` takes a knn imputed dataset to determine the optimal number of clusters.
+
+```{r}
+optimal_knn_kmeans_clusters(knn_imputed)
+```
+
+Here we see that when looking at the average silhouette width the optimal number of clusters is 2. Next `get_knn_kmeans_elbow_plot` returns an elbow plot for the optimal number of clusters.
+
+```{r}
+get_knn_kmeans_elbow_plot(knn_imputed)
+```
+
+Looking at the elbow plot we again see that 2 is a solid choice for the amount of clusters to look at with this dataset. Now we will use `run_knn_movies_clustering` to cluster our data into 2 clusters using kmeans.
+
+```{r}
+run_knn_movies_clustering(2, knn_imputed)
+```
+
+Using this value of 2 we are able to get a visualization of our data separated into clusters. Now we run `get_knn_clustered_data` which takes two arguments. The first is the original data to get our original column names, since in our case this data had movieIds as column names. We lost our specific column names when we imputed values. The second is the knn imputed dataset which will be clustered on.
+
+```{r}
+knn_clustered_data <- get_knn_clustered_data(new_data, knn_imputed)
+head(knn_clustered_data, c(5, 3))
+```
+
+Here our final dataset now allows us to see how movies were separated into clusters.
+
+## NMF Imputation
+
+First we will use the `run_nmf_imputation` function on our new dataset.
+
+```{r message=FALSE}
+nmf_imputed <- run_nmf_imputation(3, new_data)
+head(nmf_imputed, c(5, 5))
+```
+
+Imputation is done using a rank 3 NMF and multiplying out the wdh matrices. Looking at the first 5 rows and columns we see now that our dataset has values where there used to be missing values.
+
+## Clustering with NMF imputed dataset
+
+Now that we have a full dataset we again can cluster that dataset to see what movies are alike. `optimal_nmf_kmeans_clusters` takes a nmf, here we use the one returned from running NMF imputation above, to determine the optimal number of clusters.
+
+```{r}
+optimal_nmf_kmeans_clusters(nmf)
+```
+
+Here we see that when looking at the average silhouette width the optimal number of clusters is 2 once again. Next `get_nmf_kmeans_elbow_plot` returns an elbow plot for the optimal number of clusters, taking in a NMF as an argument.
+
+```{r}
+get_nmf_kmeans_elbow_plot(nmf)
+```
+
+Looking at the elbow plot we again see that 2 is a solid choice for the amount of clusters to look at with this dataset.
+Then we use `run_nmf_movies_clustering` to cluster our NMF into 2 clusters using kmeans.
+
+```{r}
+run_nmf_movies_clustering(2, nmf)
+```
+
+Using this value of 2 we are able to get a visualization of our data separated into clusters. Next we run `get_nmf_clustered_data` which takes two arguments. The first is the NMF to get our original column names, since in our case this data had movieIds as column names. We lost our specific column names when we imputed values. The second is our kmean returned from running NMF clustering above.
+
+```{r}
+nmf_clustered_data <- get_nmf_clustered_data(nmf, kmean)
+head(nmf_clustered_data, c(5, 3))
+```
+
+Here we once again have a final dataset that allows us to see how movies were separated into clusters.
