@@ -14,7 +14,7 @@ See `pkgdown` site here:
 
 MovieDataCleaner easily:
 
--   drops rows and columns containg missing values
+-   drops rows and columns containing missing values
 -   imputes missing values using NMF or kNN
 -   clusters imputed datasets
 
@@ -29,12 +29,25 @@ devtools::install_github("BruceBuurstra/MovieDataCleaner")
 
 ## kNN Imputation
 
-The `run_knn_imputation` imputes values into a dataset where there was
-missing values.
+Below we have dataset with a lot of missing values and after running
+this function values have been imputed where they were.
 
 ``` r
 library(MovieDataCleaner)
 load("C:/Users/bbuur/MovieDataCleaner/data/new_data.rdata")
+head(new_data, c(5,5))
+#>     1   2  6 10 11
+#> 1 4.0  NA  4 NA NA
+#> 2 4.5  NA NA NA NA
+#> 3 3.5 3.0  4 NA NA
+#> 4 4.0 3.0 NA  2 NA
+#> 5 3.5 3.5 NA  5 NA
+```
+
+The `run_knn_imputation` imputes values into a dataset where there was
+missing values.
+
+``` r
 knn_imputed <- run_knn_imputation(5, new_data)
 head(knn_imputed, c(5,5))
 #>        1   2        6       10    11
