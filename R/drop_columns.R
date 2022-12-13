@@ -10,6 +10,7 @@
 #' new_data <- drop_columns(0.9, ratings_wide)
 #' # returns our movie ratings dataset with columns having over 90% missing values removed
 #'
+#' @references https://stackoverflow.com/questions/31848156/delete-columns-rows-with-more-than-x-missing
 #' @export
 
 # Drop the columns having x or more percentage of missing values in dataset.

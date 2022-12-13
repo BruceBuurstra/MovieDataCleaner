@@ -117,3 +117,11 @@ head(nmf_clustered_data, c(5, 3))
 ```
 
 Here we once again have a final dataset that allows us to see how movies were separated into clusters.
+
+
+## References
+
+1. https://debruine.github.io/tutorials/packages.html
+2. https://r-pkgs.org/
+3. https://stackoverflow.com/questions/31848156/delete-columns-rows-with-more-than-x-missing
+
