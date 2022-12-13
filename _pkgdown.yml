@@ -1,5 +1,5 @@
 template:
   bootstrap: 5
-  bootswatch: lux
+  bootswatch: materia
   bslib:
     pkgdown-nav-height: 100px
