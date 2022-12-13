@@ -1,13 +1,6 @@
-context("round_to_movie_rating")
+library(MovieDataCleaner)
 
-testthat::test_that("equals", {
-  testthat::expect_equal(
-    round_to_movie_rating(2.1),
-    2
-  )
-
-  testthat::expect_equal(
-    round_to_movie_rating(2.6),
-    2.5
-  )
+test_that("Rounding the ratings", {
+  expect_equal(round_to_movie_rating(2.1), 2)
+  expect_equal(round_to_movie_rating(2.6), 2.5)
 })

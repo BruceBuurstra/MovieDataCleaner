@@ -22,7 +22,7 @@ Here we load our package and dataset from MovieLens which contains lots of missi
 
 ```{r setup}
 library(MovieDataCleaner)
-load("C:/Users/bbuur/MovieDataCleaner/data/ratings_wide.rdata")
+load("../data/ratings_wide.rdata")
 ratings_wide <- ratings_wide[,-1]
 ```
 
