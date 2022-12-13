@@ -29,8 +29,7 @@ devtools::install_github("BruceBuurstra/MovieDataCleaner")
 
 ## kNN Imputation
 
-Below we have dataset with a lot of missing values and after running
-this function values have been imputed where they were.
+Below we have a dataset of movie ratings with a lot of missing values.
 
 ``` r
 library(MovieDataCleaner)
@@ -58,8 +57,8 @@ head(knn_imputed, c(5,5))
 #> [5,] 3.5 3.5 3.750000 5.000000 3.500
 ```
 
-We can also `round_to_movie_ratings` to make sure every value is rounded
-to a movie rating.
+We can also use `round_to_movie_ratings` to make sure every value is
+rounded to a movie rating.
 
 ``` r
 knn_round <- sapply(knn_imputed, round_to_movie_rating)
