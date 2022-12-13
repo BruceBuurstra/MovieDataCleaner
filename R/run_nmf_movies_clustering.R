@@ -7,7 +7,8 @@
 #' @return Returns the clustered plot of \code{w} kmeans clusters
 #' @examples
 #'
-#' run_nmf_movies_clustering(2, nmf) # returns kmeans 2 cluster plot for NMF on our movie ratings data
+#' run_nmf_movies_clustering(2, nmf)
+#' # returns kmeans 2 cluster plot for NMF on our movie ratings data
 #'
 #' @export
 
@@ -20,6 +21,6 @@ run_nmf_movies_clustering <- function(w, nmf) {
   plot1 <- factoextra::fviz_cluster(kmean, data = movies,
                         geom = c("point"), ellipse.type = "euclid")
 
-  assign("kmean", kmean, envir = .GlobalEnv)
+  #assign("kmean", kmean, envir = .GlobalEnv)
   return(plot1)
 }

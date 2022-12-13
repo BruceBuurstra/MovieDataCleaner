@@ -7,7 +7,8 @@
 #' @return Returns the dataset using NMF of rank \code{z} to impute missing values
 #' @examples
 #'
-#' run_nmf_imputation(3, new_data) # returns our movie ratings dataset with missing values imputed from an NMF of rank 3
+#' run_nmf_imputation(3, new_data)
+#' # returns our movie ratings dataset with missing values imputed from an NMF of rank 3
 #'
 #' @export
 
@@ -22,7 +23,7 @@ run_nmf_imputation <- function(z, data) {
   nmf <- RcppML::nmf(data_matrix, z, mask = "zeros")
 
   data_nmf_imputed <- as.matrix(nmf@w %*% Matrix::Diagonal(x = nmf@d) %*% nmf@h)
-  assign("nmf", nmf, envir = .GlobalEnv)
+  #assign("nmf", nmf, envir = .GlobalEnv)
   return(data_nmf_imputed)
 }
 

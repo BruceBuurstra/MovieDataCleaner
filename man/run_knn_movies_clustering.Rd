@@ -19,6 +19,7 @@ Returns the clustered plot of \code{v} kmeans clusters
 }
 \examples{
 
-run_knn_movies_clustering(2, knn_imputed) # returns kmeans 2 cluster plot for knn on our movie ratings data
+run_knn_movies_clustering(2, knn_imputed)
+# returns kmeans 2 cluster plot for knn on our movie ratings data
 
 }

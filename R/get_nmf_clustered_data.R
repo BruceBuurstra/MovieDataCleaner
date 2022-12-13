@@ -7,7 +7,8 @@
 #' @return Returns the clustered dataset of kmean clusters using NMF
 #' @examples
 #'
-#' nmf_clustered_data <- get_nmf_clustered_data(nmf, kmean) # returns kmeans clustered dataset of movies using NMF on our movie ratings data
+#' nmf_clustered_data <- get_nmf_clustered_data(nmf, kmean)
+#' # returns kmeans clustered dataset of movies using NMF on our movie ratings data
 #'
 #' @export
 
