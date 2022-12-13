@@ -7,7 +7,8 @@
 #' @return Returns the dataset using knn to impute missing values
 #' @examples
 #'
-#' run_knn_imputation(5, new_data) # returns our movie ratings dataset with missing values imputed from using knn of 5
+#' run_knn_imputation(5, new_data)
+#' # returns our movie ratings dataset with missing values imputed from using knn of 5
 #'
 #' @export
 
@@ -38,7 +39,7 @@ run_knn_imputation <- function(n, data) {
       #print(i)
       #print(j)
     }
-    assign("euclidean_matrix", euclidean_matrix, envir = .GlobalEnv)
+    #assign("euclidean_matrix", euclidean_matrix, envir = .GlobalEnv)
   }
 
   knn_imputed <- data_matrix
@@ -77,7 +78,7 @@ run_knn_imputation <- function(n, data) {
     }
   }
   # return knn_imputed matrix
-  assign("knn_imputed", knn_imputed, envir = .GlobalEnv)
+  #assign("knn_imputed", knn_imputed, envir = .GlobalEnv)
   return(knn_imputed)
 }
 

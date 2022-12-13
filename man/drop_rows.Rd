@@ -19,6 +19,7 @@ Returns the dataset with rows having \code{y}\% or more missing values removed o
 }
 \examples{
 
-new_data <- drop_rows(0.75, new_data) # returns our movie ratings dataset with rows having over 75\% missing values removed
+new_data <- drop_rows(0.75, new_data)
+# returns our movie ratings dataset with rows having over 75\% missing values removed
 
 }

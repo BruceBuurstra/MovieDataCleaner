@@ -7,7 +7,8 @@
 #' @return Returns the clustered plot of \code{v} kmeans clusters
 #' @examples
 #'
-#' run_knn_movies_clustering(2, knn_imputed) # returns kmeans 2 cluster plot for knn on our movie ratings data
+#' run_knn_movies_clustering(2, knn_imputed)
+#' # returns kmeans 2 cluster plot for knn on our movie ratings data
 #'
 #' @export
 
@@ -20,6 +21,6 @@ run_knn_movies_clustering <- function(v, data) {
   plot1 <- factoextra::fviz_cluster(knn_kmeans, data = knn_movies,
                         geom = c("point"), ellipse.type = "euclid")
 
-  assign("knn_kmeans", knn_kmeans, envir = .GlobalEnv)
+  #assign("knn_kmeans", knn_kmeans, envir = .GlobalEnv)
   return(plot1)
 }

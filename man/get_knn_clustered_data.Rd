@@ -19,6 +19,7 @@ Returns the clustered dataset of kmean clusters using knn
 }
 \examples{
 
-knn_clustered_data <- get_knn_clustered_data(new_data, knn_imputed) # returns kmeans 2 cluster plot for knn on our movie ratings data
+knn_clustered_data <- get_knn_clustered_data(new_data, knn_imputed)
+# returns kmeans 2 cluster plot for knn on our movie ratings data
 
 }

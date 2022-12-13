@@ -19,6 +19,7 @@ Returns the dataset using NMF of rank \code{z} to impute missing values
 }
 \examples{
 
-run_nmf_imputation(3, new_data) # returns our movie ratings dataset with missing values imputed from an NMF of rank 3
+run_nmf_imputation(3, new_data)
+# returns our movie ratings dataset with missing values imputed from an NMF of rank 3
 
 }

@@ -19,6 +19,7 @@ Returns the dataset using knn to impute missing values
 }
 \examples{
 
-run_knn_imputation(5, new_data) # returns our movie ratings dataset with missing values imputed from using knn of 5
+run_knn_imputation(5, new_data)
+# returns our movie ratings dataset with missing values imputed from using knn of 5
 
 }

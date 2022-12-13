@@ -19,6 +19,7 @@ Returns the dataset with columns having \code{x}\% or more missing values remove
 }
 \examples{
 
-new_data <- drop_columns(0.9, ratings_wide) # returns our movie ratings dataset with columns having over 90\% missing values removed
+new_data <- drop_columns(0.9, ratings_wide)
+# returns our movie ratings dataset with columns having over 90\% missing values removed
 
 }
